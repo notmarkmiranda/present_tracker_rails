@@ -12,3 +12,15 @@ body, html {
 .form-button {
   margin-top: 10px
 }
+
+.alert {
+  position: fixed;
+  top: 120px;
+  left: 40%;
+  width: 25%;
+  z-index: 7000;
+}
+
+nav {
+  border-bottom: #19476D 5px solid;
+}

@@ -9,6 +9,14 @@ class SessionsController < ApplicationController
       flash[:success] = "you're logged in!"
       redirect_to user_dashboard_path
     else
+      flash.now[:danger] = "something went wrong!"
+      render :new
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:danger] = "logged out!"
+    redirect_to root_path
   end
 end
