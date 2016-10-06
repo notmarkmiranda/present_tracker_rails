@@ -1,9 +1,13 @@
 <nav class="navbar navbar-light bg-faded">
   <div class="container">
-    <a class="navbar-brand" href="#">Super Duper Present Tracking System</a>
+    <a class="navbar-brand" href="/">Super Duper Present Tracking System</a>
     <ul class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
-        <%= link_to "Log In", login_path, class:"nav-link" %>
+        <% if current_user %>
+          <%= link_to "Log Out", logout_path, class:"nav-link" %>
+        <% else %>
+          <%= link_to "Log In", login_path, class:"nav-link" %>
+        <% end %>
       </li>
     </ul>
   </div>
