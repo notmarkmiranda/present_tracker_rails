@@ -1,0 +1,10 @@
+<%= form_for @family_member do |f| %>
+  <%= f.label :first_name, "first name" %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name, "last name" %>
+  <%= f.text_field :last_name %>
+  <%= f.date_field :birthdate, id:"birthdate" %>
+  <%= f.label :relationship_id, "relationship" %>
+  <%= f.text_field :relationship_id %>
+  <%= f.submit "Create!" %>
+<% end %>
