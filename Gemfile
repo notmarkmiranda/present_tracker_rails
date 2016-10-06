@@ -14,6 +14,7 @@ gem 'bcrypt'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
   gem 'capybara'
   gem 'launchy'
   gem 'pry'
