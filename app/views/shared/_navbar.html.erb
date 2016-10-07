@@ -2,11 +2,17 @@
   <div class="container">
     <a class="navbar-brand" href="/">Super Duper Present Tracking System</a>
     <ul class="nav navbar-nav pull-xs-right">
-      <li class="nav-item">
-        <% if current_user %>
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to "Dashboard", user_dashboard_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Log Out", logout_path, class:"nav-link" %>
+        </li>
         <% else %>
+        <li class="nav-item">
           <%= link_to "Log In", login_path, class:"nav-link" %>
+        </li>
         <% end %>
       </li>
     </ul>
