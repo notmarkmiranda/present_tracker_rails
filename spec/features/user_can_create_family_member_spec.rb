@@ -18,9 +18,9 @@ RSpec.feature "family member creation", type: feature do
     click_button "Create!"
 
     expect(page).to have_content("New Person Created!")
-    expect(page).to have_content("Name: Holly Miranda")
+    expect(page).to have_content("Holly Miranda")
     expect(page).to have_content("Birthdate: July 14, 1980")
-    expect(page).to have_content("Relationship: Wife")
+    expect(page).to have_content("WIFE")
   end
 
   scenario "doesn't create fm without all data - first sad path" do

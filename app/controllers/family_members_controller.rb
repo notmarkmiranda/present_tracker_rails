@@ -8,10 +8,8 @@ class FamilyMembersController < ApplicationController
   end
 
   def create
-    rel = Relationship.from_family_member(family_member_params[:relationship_id])
-    family_member = FamilyMember.new(family_member_params)
-    family_member.relationship_id = rel.id
-    if family_member.save
+    fam = Relationship.from_family_member(family_member_params)
+    if fam.save
       flash[:success] = "New Person Created!"
       redirect_to family_members_path
     else
