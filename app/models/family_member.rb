@@ -6,8 +6,8 @@ class FamilyMember < ApplicationRecord
   validates_presence_of :birthdate
   validates_presence_of :relationship_id
   validates_uniqueness_of :first_name, scope: :last_name
-  
-  def formatteed_relationship
+
+  def formatted_relationship
     relationship.rel_type.capitalize
   end
 end
