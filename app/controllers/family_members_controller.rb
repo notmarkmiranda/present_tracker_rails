@@ -5,7 +5,6 @@ class FamilyMembersController < ApplicationController
   end
 
   def new
-    @family_member = FamilyMember.new
   end
 
   def create
@@ -16,6 +15,8 @@ class FamilyMembersController < ApplicationController
       flash[:success] = "New Person Created!"
       redirect_to family_members_path
     else
+      flash.now[:danger] = "something went wrong!"
+      render :new
     end
   end
 

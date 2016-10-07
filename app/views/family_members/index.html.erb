@@ -1,5 +1,7 @@
-<% @family_members.each do |fam| %>
-  Name: <%= fam.first_name %> <%= fam.last_name %><br />
-  Birthdate: <%= fam.birthdate.strftime("%B %e, %Y") %><br />
-  Relationship: <%= fam.formatteed_relationship %>
-<% end %>
+<div class="container">
+  <% @family_members.each do |fam| %>
+    Name: <%= fam.first_name %> <%= fam.last_name %><br />
+    Birthdate: <%= fam.birthdate.strftime("%B %e, %Y") %><br />
+    Relationship: <%= fam.formatteed_relationship %>
+  <% end %>
+</div>

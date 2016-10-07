@@ -1,10 +1,30 @@
-<%= form_for @family_member do |f| %>
-  <%= f.label :first_name, "first name" %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name, "last name" %>
-  <%= f.text_field :last_name %>
-  <%= f.date_field :birthdate, id:"birthdate" %>
-  <%= f.label :relationship_id, "relationship" %>
-  <%= f.text_field :relationship_id %>
-  <%= f.submit "Create!" %>
-<% end %>
+<div class="col-sm-2 offset-sm-5 family-modal">
+  <div class="card">
+    <div class="card-header">
+      Create Someone
+    </div>
+    <div class="card-block">
+      <%= form_for FamilyMember.new do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name, "first name" %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name, "last name" %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :birthdate, "birthdate" %>
+        <%= f.date_field :birthdate, id:"birthdate", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :relationship_id, "relationship" %>
+        <%= f.text_field :relationship_id, class: "form-control" %>
+      </div>
+      <div class="form-button">
+        <%= f.submit "Create!", class: "btn btn-outline-primary btn-block" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
