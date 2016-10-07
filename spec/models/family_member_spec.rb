@@ -9,4 +9,18 @@ RSpec.describe FamilyMember, type: :model do
 
     it { should validate_uniqueness_of(:first_name).scoped_to(:last_name) }
   end
+
+  context "#formatted_relationship" do
+    before do
+      rel = Relationship.create(rel_type: "me")
+      @fam = FamilyMember.create(first_name: "Mark",
+                                 last_name: "Miranda",
+                                 birthdate: "1981-12-06",
+                                 relationship_id: rel.id)
+    end
+
+    it "returns a formatted relationship type" do
+      expect(@fam.formatted_relationship).to eq("Me")
+    end
+  end
 end
