@@ -1,5 +1,5 @@
 body, html {
-  font-family: "Avenir" !important;
+  font-family: "Gill Sans" !important;
 }
 
 .login-modal {
@@ -31,4 +31,31 @@ nav {
 
 .family-modal {
   margin-top: 50px;
+}
+
+.fm-card-image {
+  width: 100%
+}
+
+div.card {
+  padding: 0px;
+}
+
+.fm-index {
+  margin-top: 20px;
+  align: center;
+}
+
+.custom-text-muted {
+  font-size: 0.8em;
+  font-weight:lighter;
+  color: #ddd;
+}
+
+.custom-text-title {
+  font-weight: 300;
+}
+
+.card {
+  // margin: 2px;
 }

@@ -8,6 +8,6 @@ class FamilyMember < ApplicationRecord
   validates_uniqueness_of :first_name, scope: :last_name
 
   def formatted_relationship
-    relationship.rel_type.capitalize
+    relationship.rel_type.upcase
   end
 end

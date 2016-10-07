@@ -20,7 +20,7 @@ RSpec.describe FamilyMember, type: :model do
     end
 
     it "returns a formatted relationship type" do
-      expect(@fam.formatted_relationship).to eq("Me")
+      expect(@fam.formatted_relationship).to eq("ME")
     end
   end
 end
