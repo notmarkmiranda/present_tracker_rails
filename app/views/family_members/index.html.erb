@@ -1,14 +1,15 @@
 <div class="container fm-index">
   <% @family_members.each do |fam| %>
-  <div class="card col-sm-3">
-    <div class="card-block">
-      <h4 class="card-title custom-text-title"><%= fam.first_name.capitalize %> <%= fam.last_name.capitalize %></h4>
-      <h6 class="card-subtitle custom-text-muted"><%= fam.formatted_relationship %></h6>
-    </div>
-    <%= image_tag "http://placehold.it/250x250", class: "fm-card-image" %>
-    <div class="card-block">
-      <p class="card-text">Birthdate: <%= fam.birthdate.strftime("%B %e, %Y") %></p>
-    </div>
+  <div class="card fam-card">
+    <img src="http://placehold.it/250x250" class="fm-card-image" />
+    <section class="profile-information">
+      <p class="custom-text-title"><%= fam.first_name.capitalize %> <%= fam.last_name.capitalize %></p>
+      <p class="custom-text-muted"><%= fam.formatted_relationship %></p>
+      <p class="card-text"><%= fam.birthdate.strftime("%B %e, %Y") %></p>
+      <section class="fam-links">
+        <%= link_to "edit", edit_family_member_path(fam) %> - <%= link_to "delete", "#" %>
+      </section>
+    </section>
   </div>
   <% end %>
 </div>

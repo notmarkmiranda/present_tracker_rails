@@ -7,7 +7,7 @@ RSpec.describe FamilyMember, type: :model do
     it { should validate_presence_of :birthdate }
     it { should validate_presence_of :relationship_id }
 
-    it { should validate_uniqueness_of(:first_name).scoped_to(:last_name) }
+    it { should validate_uniqueness_of(:first_name).scoped_to(:last_name).case_insensitive }
   end
 
   context "#formatted_relationship" do
