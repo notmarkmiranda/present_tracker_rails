@@ -1,5 +1,5 @@
 class FamilyMembersController < ApplicationController
-
+  before_action :require_user
   def index
     @family_members = FamilyMember.all
   end

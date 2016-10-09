@@ -17,6 +17,22 @@ class FamilyMember < ApplicationRecord
     relationship.rel_type if relationship
   end
 
+  def age
+    now = Date.today.to_date
+    now.year - birthdate.year - (birthdate.to_date.change(year: now.year) >= now ? 1 : 0)
+  end
+
+  def days_until
+    now = Date.today.to_date
+    if birthdate.to_date.change(year: now.year) > now
+      bd = birthdate.to_date.change(year: now.year)
+      (bd - now).to_i
+    else
+      bd = birthdate.to_date.change(year: now.year + 1)
+      (bd - now).to_i
+    end
+  end
+
   private
 
   def strip_and_downcase
