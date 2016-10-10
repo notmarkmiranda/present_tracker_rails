@@ -7,11 +7,11 @@
 
     context "#from_family_member" do
       before do
-        rel = Relationship.create(rel_type: "wife")
+        @rel = Relationship.create(rel_type: "wife")
         @fam = FamilyMember.create(first_name: "first",
                                    last_name: "last",
                                    birthdate: "1981-12-06",
-                                   relationship_id: rel.id)
+                                   relationship_id: @rel.id)
       end
 
       it "should create a new relationship" do
@@ -20,6 +20,12 @@
 
       it "should not create a new relationship, but find the old one" do
         expect { Relationship.from_family_member({ raw_relationship: "wife" }, "create", @fam) }.not_to change { Relationship.count }
+      end
+
+      it "should update existing relationship" do
+        expect(@rel.rel_type).to eq("wife")
+        Relationship.from_family_member({ raw_relationship: "wife!" }, "update", @fam)
+        expect(@fam.raw_relationship).to eq("wife!")
       end
     end
 

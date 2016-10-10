@@ -1,17 +1,25 @@
 <div class="container fm-index">
-  <% @family_members.each do |fam| %>
-  <div class="card fam-card">
-    <img src="http://placehold.it/250x250" class="fm-card-image" />
-    <section class="profile-information">
-      <p class="custom-text-title"><%= fam.first_name.capitalize %> <%= fam.last_name.capitalize %></p>
-      <p class="custom-text-muted"><%= fam.formatted_relationship %></p>
-      <p class="card-text"><%= fam.birthdate.strftime("%B %e, %Y") %></p>
-      <p class="custom-text-muted"><%= fam.age %> years old</p>
-      <p class="custom-text-muted"><%= fam.days_until %> days to go</p>
-      <section class="fam-links">
-        <%= link_to "edit", edit_family_member_path(fam) %> | <%= link_to "delete", "#" %>
-      </section>
-    </section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: "shared/sidebar" %>
+    </div>
+    <div class="col-md-9">
+      <% @family_members.each do |fam| %>
+      <div class="card fam-card">
+        <img src="http://placehold.it/250x250" class="fm-card-image" />
+        <section class="profile-information">
+          <p class="custom-text-title"><%= fam.first_name.capitalize %> <%= fam.last_name.capitalize %></p>
+          <p class="custom-text-muted"><%= fam.formatted_relationship %></p>
+          <section class="fam-links">
+            <%= link_to "edit", edit_family_member_path(fam) %> |
+            <%= button_to "delete", { action: :destroy, id: fam.id }, { method: :delete, class: "fam-delete-button"} %>
+          </section>
+          <p class="card-text"><%= fam.birthdate.strftime("%B %e, %Y") %></p>
+          <p class="custom-text-muted"><%= fam.age %> years old</p>
+          <p class="custom-text-muted"><span><%= fam.days_until %></span> days to go</p>
+        </section>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
 </div>

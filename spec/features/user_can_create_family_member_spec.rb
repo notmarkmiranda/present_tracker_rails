@@ -8,7 +8,7 @@ RSpec.feature "family member creation", type: feature do
 
   scenario "from the dashboard path" do
     visit '/dashboard'
-    click_link "create new family member"
+    click_link "create new"
 
     fill_in "first name", with: "Holly"
     fill_in "last name", with: "Miranda"

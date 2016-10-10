@@ -33,6 +33,10 @@ class FamilyMember < ApplicationRecord
     end
   end
 
+  def self.sorted_by_days_until
+    FamilyMember.all.sort_by(&:days_until)
+  end
+
   private
 
   def strip_and_downcase
