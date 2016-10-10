@@ -1,8 +1,8 @@
 <div class="container">
   <div class="col-md-3">
-    <ul class="list-group">
-      <li class="list-group-item"><%= link_to "create new family member", new_family_member_path %></li>
-      <li class="list-group-item"><%= link_to "view all family members", family_members_path %></li>
-    </ul>
+    <%= render partial: "shared/sidebar" %>
+  </div>
+  <div class="col-md-9">
+    <h2>DASHBOARD!</h2>
   </div>
 </div>

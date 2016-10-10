@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006191549) do
+ActiveRecord::Schema.define(version: 20161010122724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,27 @@ ActiveRecord::Schema.define(version: 20161006191549) do
     t.date    "birthdate"
     t.integer "relationship_id"
     t.index ["relationship_id"], name: "index_family_members_on_relationship_id", using: :btree
+  end
+
+  create_table "occasions", force: :cascade do |t|
+    t.string  "name"
+    t.integer "year"
+  end
+
+  create_table "presents", force: :cascade do |t|
+    t.string  "name"
+    t.string  "link"
+    t.decimal "price"
+    t.integer "quantity"
+  end
+
+  create_table "purchased_presents", force: :cascade do |t|
+    t.integer "family_member_id"
+    t.integer "present_id"
+    t.integer "occasion_id"
+    t.index ["family_member_id"], name: "index_purchased_presents_on_family_member_id", using: :btree
+    t.index ["occasion_id"], name: "index_purchased_presents_on_occasion_id", using: :btree
+    t.index ["present_id"], name: "index_purchased_presents_on_present_id", using: :btree
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -35,4 +56,7 @@ ActiveRecord::Schema.define(version: 20161006191549) do
   end
 
   add_foreign_key "family_members", "relationships"
+  add_foreign_key "purchased_presents", "family_members"
+  add_foreign_key "purchased_presents", "occasions"
+  add_foreign_key "purchased_presents", "presents"
 end
